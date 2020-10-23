@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from "react-router-dom";
+import { Form} from "react-bootstrap";
 import Layout from "../Layout";
-import {Button, Form} from "react-bootstrap";
 import Title from "../Title";
 import ButtonGroup from "../ButtonGroup";
 

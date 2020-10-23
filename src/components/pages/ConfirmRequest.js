@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useHistory} from "react-router-dom";
-import {Jumbotron, Container, Row} from "react-bootstrap";
+import {Jumbotron} from "react-bootstrap";
 import '../styles/confirmRequest.css';
 import Layout from "../Layout";
 
@@ -16,7 +16,7 @@ const ConfirmRequest = (props) => {
 
     return (
         <Layout header={false}>
-            <div className='confirm-request-wrapper text-center'>
+            <div className='mt-lg-5 text-center'>
                 <Jumbotron>
                     <p className='request-success'>Request Received</p>
                 </Jumbotron>

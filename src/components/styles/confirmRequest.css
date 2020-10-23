@@ -1,7 +1,8 @@
 .request-success {
     font-size: 2rem;
-    color: rgb(65, 102, 255);
+    color: var(--color-primary);
+    text-transform: uppercase;
 }
 .description {
-
+    font-size: 1rem;
 }

@@ -28,8 +28,8 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const isExist = clientIds.includes(clientId);
-        if (isExist) {
+        const isClientExist = clientIds.includes(clientId);
+        if (isClientExist) {
             localStorage.setItem('clientId', clientId);
             history.push('/personal-info');
         } else {

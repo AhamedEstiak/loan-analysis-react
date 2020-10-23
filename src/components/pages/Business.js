@@ -43,7 +43,7 @@ const Business = () => {
                         <Form.Label>Business Name</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="e.g bdjobs"
+                            placeholder="e.g google"
                             name="businessName"
                             value={businessName}
                             onChange={handleChange}
