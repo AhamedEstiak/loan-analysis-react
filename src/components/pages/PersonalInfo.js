@@ -4,6 +4,9 @@ import { Form} from "react-bootstrap";
 import Layout from "../Layout";
 import Title from "../Title";
 import ButtonGroup from "../ButtonGroup";
+import {occupations} from "../../utils/constants";
+import {personalInfoValidator} from "../../utils/validators";
+import InputError from "../InputError";
 
 const PersonalInfo = (props) => {
     const [formData, setFormData] = useState({
@@ -11,12 +14,24 @@ const PersonalInfo = (props) => {
         phone: '',
         email: '',
         occupation: '',
+        errors: {
+            name: '',
+            phone: '',
+            email: '',
+        }
     });
-    const { name, phone, email, occupation } = formData;
+    const { name, phone, email, occupation, errors } = formData;
     const history = useHistory();
 
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
+        const { name, value } = e.target;
+        console.log(personalInfoValidator(name, value, errors));
+
+        setFormData({
+            ...formData,
+            [name]: value,
+            errors: personalInfoValidator(name, value, errors)
+        });
     };
 
     const handleSubmit = (e) => {
@@ -30,7 +45,7 @@ const PersonalInfo = (props) => {
     return (
         <Layout>
             <Title label='Personal info'/>
-            <Form onSubmit={handleSubmit} className='form'>
+            <Form onSubmit={handleSubmit} className='form' noValidate>
                 <div>
                     <Form.Group>
                         <Form.Label>Name</Form.Label>
@@ -42,6 +57,7 @@ const PersonalInfo = (props) => {
                             onChange={handleChange}
                             required
                         />
+                        {errors.name && <InputError label={errors.name} />}
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Phone</Form.Label>
@@ -53,6 +69,7 @@ const PersonalInfo = (props) => {
                             onChange={handleChange}
                             required
                         />
+                        {errors.phone && <InputError label={errors.phone} />}
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Email</Form.Label>
@@ -64,6 +81,7 @@ const PersonalInfo = (props) => {
                             onChange={handleChange}
                             required
                         />
+                        {errors.email && <InputError label={errors.email} />}
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Occupation</Form.Label>
@@ -75,17 +93,23 @@ const PersonalInfo = (props) => {
                             required
                         >
                             <option value="">Select an occupation</option>
-                            <option value="jobHolder">Job Holder</option>
-                            <option value="business">Business</option>
+                            {occupations.map(occupation =>
+                                <option
+                                    key={occupation.value}
+                                    value={occupation.value}
+                                >
+                                    {occupation.label}
+                                </option>
+                            )}
                         </Form.Control>
                     </Form.Group>
                 </div>
 
                 <ButtonGroup
                     disabled={
-                        !name ||
-                        !phone ||
-                        !email ||
+                        !name && errors.name ||
+                        !phone && errors.phone ||
+                        !email && errors.email ||
                         !occupation
                     }
                 />

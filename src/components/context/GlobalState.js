@@ -23,13 +23,6 @@ export const GlobalProvider = ({ children }) => {
         });
     };
 
-    const updateLoanInfo = (info) => {
-        dispatch({
-            type: 'SET_LOAN_INFO',
-            payload: info
-        });
-    };
-
     return (<GlobalContext.Provider value={{
         loanInfo: state.loanInfo,
         setLoanInfo,

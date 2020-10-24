@@ -5,6 +5,7 @@ import Title from "../Title";
 import ButtonGroup from "../ButtonGroup";
 import Layout from "../Layout";
 import {GlobalContext} from "../context/GlobalState";
+import {experienceInYears} from "../../utils/constants";
 
 const JobHolder = (props) => {
     const [formData, setFormData] = useState({
@@ -53,12 +54,22 @@ const JobHolder = (props) => {
                     <Form.Group>
                         <Form.Label>Year of Experience</Form.Label>
                         <Form.Control
-                            type="number"
-                            placeholder="e.g 5"
+                            as="select"
                             name="experience"
                             value={experience}
                             onChange={handleChange}
-                        />
+                            required
+                        >
+                            <option value="">Select experience</option>
+                            {experienceInYears.map(year =>
+                                <option
+                                    key={year}
+                                    value={year}
+                                >
+                                    {year}
+                                </option>
+                            )}
+                        </Form.Control>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Monthly Salary (&#2547;BDT)</Form.Label>

@@ -4,10 +4,10 @@ import Layout from "../Layout";
 import ButtonGroup from "../ButtonGroup";
 import '../styles/summary.css';
 import {GlobalContext} from "../context/GlobalState";
-import calculateLoanEligibility from "../utils/calculateLoanEligibility";
+import calculateLoanEligibility from "../../utils/calculateLoanEligibility";
 import Title from "../Title";
-import {interestRate} from "../utils/constants";
-import calculateEMI from "../utils/calculateEMI";
+import {interestRate} from "../../utils/constants";
+import calculateEMI from "../../utils/calculateEMI";
 
 const SummaryItem = ({title, value}) => (
     <div className='summary-item-section'>
@@ -32,20 +32,20 @@ const Summary = () => {
             <Title label='Summary'/>
             <div className='form summary-wrapper'>
                 <h3>{isEligible ? 'Eligible!' : 'Not Eligible'}</h3>
-                {!isEligible &&
+                {isEligible &&
                 <>
                     <p className='description'>You are the eligible to get the following loan amount: </p>
                     <div className='amount'>
-                        <span>&#2547;{loanInfo.loanAmount}</span>
+                        <span>&#2547;{loanInfo.loanAmount.toLocaleString()}</span>
                     </div>
 
                     <SummaryItem
                         title='Loan Period'
-                        value={loanInfo.period}
+                        value={`${loanInfo.period} years`}
                     />
                     <SummaryItem
                         title="Per Month EMI ৳"
-                        value={emi}
+                        value={emi.toLocaleString()}
                     />
                     <SummaryItem
                         title='Interest Rate'

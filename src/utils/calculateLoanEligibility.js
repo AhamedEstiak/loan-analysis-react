@@ -3,7 +3,7 @@ const calculateLoanEligibility = (loanInfo) => {
 
     if (loanInfo.type === 'jobHolder') {
         const { yearOfExperience, monthlySalary, loanAmount } = loanInfo;
-        const loanForThreeLacs = yearOfExperience >= 3 && yearOfExperience < 5 && monthlySalary >= 50000 && loanAmount <= 300000;
+        const loanForThreeLacs = yearOfExperience >= 3 && monthlySalary >= 50000 && loanAmount <= 300000;
         const loanForFiveLacs = yearOfExperience >= 5 && monthlySalary >= 70000 && loanAmount <= 500000;
 
         if (loanForThreeLacs || loanForFiveLacs) {
@@ -11,7 +11,7 @@ const calculateLoanEligibility = (loanInfo) => {
         }
     } else {
         const { yearlyRevenue, loanAmount } = loanInfo;
-        const loanForFiveLacs = yearlyRevenue >= 3000000 && yearlyRevenue < 5000000 && loanAmount <= 500000;
+        const loanForFiveLacs = yearlyRevenue >= 3000000 && loanAmount <= 500000;
         const loanForSevenLacs = yearlyRevenue >= 5000000 && loanAmount <= 700000;
 
         if (loanForFiveLacs || loanForSevenLacs) {

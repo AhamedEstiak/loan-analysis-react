@@ -3,6 +3,7 @@
     --color-secondary: #63ba9d;
     --color-gray: #999;
     --color-black: #555;
+    --color-red: #cb0f0f;
 }
 
 body {
@@ -44,6 +45,11 @@ code {
 .form .form-group label {
     font-size: 14px;
     color: var(--color-primary);
+}
+
+.form .error {
+    color: var(--color-red);
+    font-size: 12px;
 }
 
 .btn {

@@ -50,7 +50,7 @@ const Business = () => {
                         />
                     </Form.Group>
                     <Form.Group>
-                        <Form.Label>Total Employee</Form.Label>
+                        <Form.Label>Company Size</Form.Label>
                         <Form.Control
                             type="number"
                             placeholder="e.g 50"

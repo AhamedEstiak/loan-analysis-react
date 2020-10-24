@@ -5,6 +5,7 @@ import Layout from "../Layout";
 import Title from "../Title";
 import ButtonGroup from "../ButtonGroup";
 import {GlobalContext} from "../context/GlobalState";
+import {experienceInYears, loanPeriods} from "../../utils/constants";
 
 const LoanInfo = (props) => {
     const [formData, setFormData] = useState({
@@ -59,8 +60,14 @@ const LoanInfo = (props) => {
                             required
                         >
                             <option value="">Select Period</option>
-                            <option value="5">5</option>
-                            <option value="10">10</option>
+                            {loanPeriods.map(period =>
+                                <option
+                                    key={period}
+                                    value={period}
+                                >
+                                    {period}
+                                </option>
+                            )}
                         </Form.Control>
                     </Form.Group>
                 </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Form, Button, Alert} from "react-bootstrap";
 import {useHistory} from 'react-router-dom';
 import Layout from "../Layout";
-import {clientIds} from "../utils/constants";
+import {clientIds} from "../../utils/constants";
 
 const ErrorMessage = (props) => {
     return (
@@ -13,7 +13,7 @@ const ErrorMessage = (props) => {
 };
 
 const Login = () => {
-    const [clientId, setClientId] = useState('123456');
+    const [clientId, setClientId] = useState('');
     const [showError, setShowError] = useState(false);
     const history = useHistory();
 
