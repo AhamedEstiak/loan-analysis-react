@@ -14,5 +14,4 @@ export const occupations = [
 export const experienceInYears = Array.from({length: 20},(_,x) => x + 1);
 export const loanPeriods = Array.from({length: 6},(_,x) => x + 5);
 
-
 export const interestRate = 9;

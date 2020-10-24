@@ -25,7 +25,6 @@ const PersonalInfo = (props) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(personalInfoValidator(name, value, errors));
 
         setFormData({
             ...formData,
@@ -36,7 +35,6 @@ const PersonalInfo = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
         const routeName = occupation === 'business' ? '/business' : '/job-holder';
 
         history.push(routeName);

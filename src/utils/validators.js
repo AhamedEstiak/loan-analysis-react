@@ -4,12 +4,14 @@ export const validEmailRegex = RegExp(
 
 export const validPhoneRegex = RegExp(/^\+8801[3-9]\d{8}$/);
 
+// when submit check form is valid or not
 export const validateForm = errors => {
     let valid = true;
     Object.values(errors).forEach(val => val.length > 0 && (valid = false));
     return valid;
 };
 
+// personal info form validation
 export const personalInfoValidator = (name, value, errors) => {
     let newErrors = errors;
 

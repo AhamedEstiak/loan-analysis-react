@@ -1,6 +1,7 @@
 const calculateLoanEligibility = (loanInfo) => {
     let isEligible = false;
 
+    // check for different type of loan eligibility rules (jobHolder, business)
     if (loanInfo.type === 'jobHolder') {
         const { yearOfExperience, monthlySalary, loanAmount } = loanInfo;
         const loanForThreeLacs = yearOfExperience >= 3 && monthlySalary >= 50000 && loanAmount <= 300000;
